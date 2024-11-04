@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unknown-property */
-import { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { InsideScene } from "../../components/insideScene";
-import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { dataMenu } from "../../dataset/menu";
+import {useEffect, useState} from "react";
+import {Canvas} from "@react-three/fiber";
+import {OrbitControls} from "@react-three/drei";
+import {InsideScene} from "../../components/insideScene.jsx";
+import {Link} from "react-router-dom";
+import {ChevronLeft, ChevronRight} from "lucide-react";
+import {dataMenu} from "../../dataset/menu";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -26,7 +26,7 @@ const Menu = () => {
   return (
     <div className="w-full h-screen relative">
       {/* Canvas 3D */}
-      <Canvas camera={{ position: [0, 1.6, 0], fov: 70 }}>
+      <Canvas camera={{position: [0, 1.6, 0], fov: 70}}>
         <color attach="background" args={["#f0f0f0"]} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
@@ -49,15 +49,13 @@ const Menu = () => {
           {/* Tombol Navigasi */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 z-10"
-          >
+            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 z-10">
             <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 z-10"
-          >
+            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 z-10">
             <ChevronRight className="w-6 h-6" />
           </button>
 
@@ -65,14 +63,12 @@ const Menu = () => {
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
+              style={{transform: `translateX(-${currentIndex * 100}%)`}}>
               {menu.map((item) => (
                 <Link
                   key={item.id}
                   to={`/menu/${item.id}`}
-                  className="flex-shrink-0 w-full"
-                >
+                  className="flex-shrink-0 w-full">
                   <div className="bg-white rounded-lg shadow p-4 m-2">
                     <h3 className="font-bold text-xl mb-2">{item.nama}</h3>
                     <p className="text-gray-600">Rp {item.harga}K</p>
