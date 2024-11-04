@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { InsideScene } from "../../components/insideScene.jsx";
+import { InsideScene } from "../../components/InsideScene.jsx";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { dataMenu } from "../../dataset/menu";
