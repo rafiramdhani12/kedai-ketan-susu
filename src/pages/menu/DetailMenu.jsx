@@ -42,9 +42,17 @@ const DetailMenu = () => {
   };
 
   const handlePayment = () => {
-    const waNum = "+6282112584507";
+    const waNum = "+62895333138052";
+
+    // ! kumpulkan topping yg dipilih
+    const selectedTopping = Array.from(selecTopping)
+      .map((topping) => topping)
+      .join(",");
+
     const encodeMessage = encodeURIComponent(
-      `Menu makanan yang kamu beli: ${menuItem.nama}\nHarga: Rp ${menuItem.harga}K\nNama pembeli: ${buyerName}\nPesan: ${message}\nAlamat: ${address}`
+      `Menu makanan yang kamu beli: ${
+        menuItem.nama
+      }\nHarga: Rp ${hitungHarga()}K\nNama pembeli: ${buyerName}\nPesan: ${message}\nAlamat: ${address}\n topping yg ditambahkan ${selectedTopping}`
     );
     const whatssapLink = `https://wa.me/${waNum}?text=${encodeMessage}`;
 
@@ -90,7 +98,6 @@ const DetailMenu = () => {
                   </div>
                 </div>
 
-                {/* Buttons - Always at bottom of content section */}
                 <div className="flex justify-end items-center gap-4">
                   <Link to="/menu">
                     <button className="px-6 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700 font-medium">
@@ -134,11 +141,19 @@ const DetailMenu = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 />
+
+                <input
+                  type="text"
+                  placeholder="Tambahkan alamat pemesanan"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                />
                 <details className="dropdown">
                   <summary className="btn m-1">pilih topping tambahan</summary>
                   <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                     {Object.keys(toppingPrice).map((topping) => (
-                      <div className="flex justify-between" key={topping}>
+                      <div className="flex justify-between mt-3" key={topping}>
                         {topping} : {toppingPrice[topping]}k
                         <input
                           type="checkbox"
@@ -150,13 +165,6 @@ const DetailMenu = () => {
                     ))}
                   </ul>
                 </details>
-                <input
-                  type="text"
-                  placeholder="Tambahkan alamat pemesanan"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                />
               </div>
 
               <div className="flex justify-end gap-4 mt-6">
