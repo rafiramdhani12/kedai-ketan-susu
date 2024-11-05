@@ -1,19 +1,48 @@
 /* eslint-disable react/prop-types */
-import { dataMenu } from "../../dataset/menu";
+import {dataMenu} from "../../dataset/menu";
 
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {useState} from "react";
+import {Link, useParams} from "react-router-dom";
 
 const DetailMenu = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const menuItem = dataMenu.find((item) => item.id === Number(id));
 
+  const toppingPrice = {
+    keju: 2,
+    seres: 1,
+    matcha: 2,
+    choco: 2,
+  };
+
+  const [selecTopping, setSelectTopping] = useState(new Set());
   const [buyerName, setBuyerName] = useState("");
   const [message, setMessage] = useState("");
   const [address, setAddress] = useState("");
 
+  // ! menghitung total harga
+  const hitungHarga = () => {
+    let total = menuItem.harga;
+    selecTopping.forEach((topping) => {
+      total += toppingPrice[topping];
+    });
+    return total;
+  };
+
+  const handleCheckbox = (topping) => {
+    setSelectTopping((prev) => {
+      const newSelected = new Set(prev);
+      if (newSelected.has(topping)) {
+        newSelected.delete(topping);
+      } else {
+        newSelected.add(topping);
+      }
+      return newSelected;
+    });
+  };
+
   const handlePayment = () => {
-    const waNum = "+6285814531271";
+    const waNum = "+6282112584507";
     const encodeMessage = encodeURIComponent(
       `Menu makanan yang kamu beli: ${menuItem.nama}\nHarga: Rp ${menuItem.harga}K\nNama pembeli: ${buyerName}\nPesan: ${message}\nAlamat: ${address}`
     );
@@ -72,8 +101,7 @@ const DetailMenu = () => {
                     onClick={() =>
                       document.getElementById("my-modal").showModal()
                     }
-                    className="px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors text-white font-medium"
-                  >
+                    className="px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors text-white font-medium">
                     Beli Sekarang
                   </button>
                 </div>
@@ -88,7 +116,7 @@ const DetailMenu = () => {
                 Menu makanan yang kamu beli: {menuItem.nama}
               </h3>
               <p className="text-lg text-gray-600 mb-6">
-                Harga: Rp {menuItem.harga}K
+                Harga: Rp {hitungHarga()}K
               </p>
 
               <div className="space-y-4">
@@ -106,6 +134,22 @@ const DetailMenu = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 />
+                <details className="dropdown">
+                  <summary className="btn m-1">pilih topping tambahan</summary>
+                  <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    {Object.keys(toppingPrice).map((topping) => (
+                      <div className="flex justify-between" key={topping}>
+                        {topping} : {toppingPrice[topping]}k
+                        <input
+                          type="checkbox"
+                          className="checkbox"
+                          checked={selecTopping.has(topping)}
+                          onChange={() => handleCheckbox(topping)}
+                        />
+                      </div>
+                    ))}
+                  </ul>
+                </details>
                 <input
                   type="text"
                   placeholder="Tambahkan alamat pemesanan"
@@ -118,8 +162,7 @@ const DetailMenu = () => {
               <div className="flex justify-end gap-4 mt-6">
                 <button
                   onClick={handlePayment}
-                  className="px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors text-white font-medium"
-                >
+                  className="px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors text-white font-medium">
                   Bayar
                 </button>
                 <form method="dialog">

@@ -82,7 +82,7 @@ const Menu = () => {
       </div>
 
       {/* Instruksi */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black/50 px-4 py-2 rounded-full">
+      <div className="hidden md:block absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black/50 px-4 py-2 rounded-full">
         Gunakan mouse untuk melihat sekeliling
       </div>
     </div>
