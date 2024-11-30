@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-
 import { Star } from 'lucide-react';
 import { dataMenu } from '../../dataset/menu';
 import { Link } from 'react-router-dom';
-
 const Menu = () => {
 	const [menu, setMenu] = useState([]);
 	useEffect(() => {
