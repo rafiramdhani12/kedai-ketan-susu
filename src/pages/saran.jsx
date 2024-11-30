@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { db } from '../../utils/db'; // Pastikan db sudah di-set dengan benar
 import { usersTable } from '../../utils/schema'; // Pastikan schema sudah di-set dengan benar
+import { toast, ToastContainer } from 'react-toastify';
 
 const Saran = () => {
 	const [form, setForm] = useState({
@@ -40,6 +41,7 @@ const Saran = () => {
 				})
 				.returning();
 
+			toast.success(`sukses menambahkan kritik saran dan komentar terimakasih`);
 			// Reset form setelah submit berhasil
 			setForm({
 				username: '',
@@ -48,11 +50,13 @@ const Saran = () => {
 			});
 		} catch (error) {
 			console.error('Error inserting data:', error);
+			toast.error(`error inserting data ${error.message}`);
 		}
 	};
 
 	return (
 		<>
+			<ToastContainer />
 			<section className='min-h-screen mt-[64px]'>
 				<div className='mockup-browser bg-base-300 border md:h-screen'>
 					<div className='mockup-browser-toolbar'>
