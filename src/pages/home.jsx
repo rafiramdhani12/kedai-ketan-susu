@@ -1,35 +1,23 @@
-import { Link } from "react-router-dom";
-import { Scene } from "../components/Scene";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  return (
-    <div className="relative h-screen overflow-hidden">
-      {/* Bagian Kiri: Teks dan Tombol */}
-      <div className="absolute left-0 w-1/2 h-full flex justify-center items-center z-10 pointer-events-none">
-        <div className="max-w-md p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg pointer-events-auto">
-          <h2 className="text-4xl font-bold mb-6 text-white/90 text-center">
-            kedai ketan susu
-          </h2>
-          <p className="text-white/80 text-lg font-medium mb-8 text-center">
-            Selamat datang di website kami ketan susu (k&2)
-          </p>
-          <div className="text-center">
-            <Link
-              to="/menu"
-              className="inline-block text-white bg-blue-500 hover:bg-white/30 px-8 py-3 rounded-lg transition-all duration-300 text-lg font-semibold backdrop-blur-sm border border-white/20"
-            >
-              Ke sini
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Background 3D mengisi seluruh layar */}
-      <div className="w-full h-full">
-        <Scene />
-      </div>
-    </div>
-  );
+	return (
+		<section
+			className="h-screen mx-auto px-4 py-20 text-center bg-[url('/ketanOreo.jpg')] bg-center bg-no-repeat bg-cover"
+			style={{
+				backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ketanOreo.jpg')",
+			}}>
+			<div className='bg-black/60 backdrop-blur-sm rounded-xl p-10 max-w-2xl mx-auto mt-20 md:mt-10 xl:mt-32 '>
+				<h1 className='text-5xl font-extrabold text-amber-300 mb-6'>Kelezatan Tradisional</h1>
+				<p className='text-white text-xl mb-8'>Nikmati kelembutan ketan susu kami yang dibuat dengan resep warisan</p>
+				<Link to={'/menu'}>
+					<button className='bg-amber-400 text-black px-8 py-3 rounded-full hover:bg-amber-500 transition transform hover:scale-105'>
+						Pesan Sekarang
+					</button>
+				</Link>
+			</div>
+		</section>
+	);
 };
 
 export default Home;
