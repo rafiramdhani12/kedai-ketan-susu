@@ -6,6 +6,7 @@ import Menu from './pages/menu/menu';
 import DetailMenu from './pages/menu/DetailMenu';
 import Monitor from './pages/monitor';
 import Saran from './pages/saran';
+import Model from './pages/Model';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 				<Navbar />
 				<Routes>
 					<Route path='/' element={<Home />} />
+					<Route path='/model' element={<Model />} />
 					<Route path='/menu' element={<Menu />} />
 					<Route path='/saran' element={<Saran />} />
 					<Route path='/monitor' element={<Monitor />} />

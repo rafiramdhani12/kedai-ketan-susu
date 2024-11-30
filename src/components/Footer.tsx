@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
 	return (
 		<>
-			<footer className='footer bg-neutral text-neutral-content p-3'>
+			<footer className='footer bg-neutral text-neutral-content p-3 '>
 				<aside>
 					<p>
 						ketan susu

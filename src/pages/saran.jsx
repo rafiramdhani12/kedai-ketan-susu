@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { db } from '../../utils/db'; // Pastikan db sudah di-set dengan benar
 import { usersTable } from '../../utils/schema'; // Pastikan schema sudah di-set dengan benar
-import { toast, ToastContainer } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Saran = () => {
 	const [form, setForm] = useState({
@@ -26,7 +26,7 @@ const Saran = () => {
 
 		// Validasi form
 		if (!form.username || !form.email || !form.comment) {
-			alert('All fields are required');
+			toast.error('All fields are required');
 			return;
 		}
 
@@ -56,7 +56,7 @@ const Saran = () => {
 
 	return (
 		<>
-			<ToastContainer />
+			<Toaster />
 			<section className='min-h-screen mt-[64px]'>
 				<div className='mockup-browser bg-base-300 border md:h-screen'>
 					<div className='mockup-browser-toolbar'>
@@ -75,7 +75,7 @@ const Saran = () => {
 							/>
 							{/* Input untuk Email */}
 							<input
-								type='text'
+								type='email'
 								value={form.email}
 								onChange={handleChange}
 								name='email' // Pastikan name sesuai dengan key di form

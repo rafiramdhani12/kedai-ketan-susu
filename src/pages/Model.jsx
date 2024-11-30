@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-
+import { dataMenu } from '../dataset/menu';
 import { Link } from 'react-router-dom';
-import { dataMenu } from '../../dataset/menu';
 
 const Model = () => {
 	const [menu, setMenu] = useState([]);
