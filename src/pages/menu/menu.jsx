@@ -29,14 +29,12 @@ const Model = () => {
 					/>
 				</div>
 
-				{/* Menu Items Section */}
 				<div className='space-y-4'>
 					{menu.map((menuItem) => (
 						<Link key={menuItem.id} to={`/menu/${menuItem.id}`} className='block'>
-							<div className='bg-gray-100 hover:bg-gray-200 rounded-lg p-4 flex items-center justify-between transition-colors'>
+							<div className='bg-gray-100 hover:bg-gray-200 rounded-lg p-4 flex flex-wrap items-center justify-between transition-colors'>
 								<span className='text-lg font-medium text-gray-800'>{menuItem.nama}</span>
-
-								{menuItem?.label && <span className='badge badge-secondary'>{menuItem.label}</span>}
+								{menuItem?.label && <span className='badge badge-secondary mt-2 sm:mt-0'>{menuItem.label}</span>}
 							</div>
 						</Link>
 					))}
