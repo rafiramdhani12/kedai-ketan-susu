@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { dataMenu } from '../../dataset/menu';
+import { motion } from 'motion/react';
 
 const Model = () => {
 	const [menu, setMenu] = useState([]);
@@ -11,7 +12,11 @@ const Model = () => {
 	}, []);
 
 	return (
-		<div className='container mx-auto px-4 py-12 max-w-4xl mt-[64px]'>
+		<motion.div
+			initial={{ x: '-100vw', opacity: 0 }} // Mulai dari luar layar kiri
+			animate={{ x: 0, opacity: 1 }} // Animasi bergerak ke tengah
+			transition={{ duration: 1.2, ease: 'easeOut' }} // Durasi dan easing animasi
+			className='container mx-auto px-4 py-12 max-w-4xl mt-[64px]'>
 			<h1 className='text-3xl font-bold text-center text-gray-800 mb-10 tracking-tight'>Selamat Datang di Menu Kami</h1>
 
 			<div className='grid md:grid-cols-2 gap-10 items-center'>
@@ -30,9 +35,8 @@ const Model = () => {
 						<Link key={menuItem.id} to={`/menu/${menuItem.id}`} className='block'>
 							<div className='bg-gray-100 hover:bg-gray-200 rounded-lg p-4 flex items-center justify-between transition-colors'>
 								<span className='text-lg font-medium text-gray-800'>{menuItem.nama}</span>
-								{menuItem?.label && (
-									<span className='bg-gray-300 text-gray-700 text-xs px-2 py-1 rounded-full'>{menuItem.label}</span>
-								)}
+
+								{menuItem?.label && <span className='badge badge-secondary'>{menuItem.label}</span>}
 							</div>
 						</Link>
 					))}
@@ -58,7 +62,7 @@ const Model = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

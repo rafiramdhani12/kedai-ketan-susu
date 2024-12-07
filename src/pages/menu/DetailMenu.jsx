@@ -87,8 +87,9 @@ const DetailMenu = () => {
 								<div className='flex-grow'>
 									<h1 className='text-3xl font-bold text-gray-900 mb-4'>{menuItem.nama}</h1>
 									<p className='text-gray-600 text-lg mb-6 leading-relaxed'>{menuItem.deskripsi}</p>
-									<div className='bg-gray-50 rounded-xl p-4 mb-6'>
+									<div className='bg-gray-50 rounded-xl p-4 mb-6 flex justify-between'>
 										<p className='text-2xl font-bold text-gray-900'>Rp {menuItem.harga}K</p>
+										<p className='text-xl font-bold text-gray-900'>rating {menuItem.rating}⭐</p>
 									</div>
 								</div>
 
