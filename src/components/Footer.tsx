@@ -30,7 +30,7 @@ const Footer = () => {
 				</nav>
 				<div className=' grid grid-flow-row'>
 					<h1 className='footer footer-title'>kritik dan saran : </h1>
-					<Link to='/suggest'>
+					<Link to='/saran'>
 						<div className='flex gap-3'>
 							<PencilLine />: masukan kritik dan saran mu disini
 						</div>
