@@ -42,7 +42,7 @@ const DetailMenu = () => {
 	};
 
 	const handlePayment = () => {
-		const waNum = '+62895333138052';
+		const waNum = '+6281289618423';
 
 		// ! kumpulkan topping yg dipilih
 		const selectedTopping = Array.from(selecTopping)

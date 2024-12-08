@@ -16,14 +16,14 @@ const Footer = () => {
 				<nav>
 					<h6 className='footer-title'>Social</h6>
 					<div className='grid grid-flow-col gap-4'>
-						<Link to={'/'}>
+						<Link to={'https://wa.me/+6281289618423'} target='_blank'>
 							<div className='flex gap-4 hover:text-green-500'>
-								<Phone /> : 082112584507
+								<Phone /> : +6281289618423
 							</div>
 						</Link>
-						<Link to={'/'}>
+						<Link to={'https://www.instagram.com/keendtu?igsh=eDRvc2Z3c3d3bzc5'} target='_blank'>
 							<div className='gap-4 flex hover:text-red-500'>
-								<Instagram /> : k&2
+								<Instagram /> : keendtu
 							</div>
 						</Link>
 					</div>
