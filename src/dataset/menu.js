@@ -1,7 +1,7 @@
 export const dataMenu = [
 	{
 		id: 1,
-		img: '/ketanOriginal.jpg',
+		img: '/og.jpg',
 		nama: 'ketan susu original',
 		deskripsi: 'ketan susu original adalah makanan tradisional ketan yg disiram oleh kental manis dan susu segar',
 		label: '',

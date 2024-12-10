@@ -1,4 +1,4 @@
-import { Instagram, PencilLine, Phone } from 'lucide-react';
+import { CircleHelp, Instagram, PencilLine, Phone } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -33,6 +33,14 @@ const Footer = () => {
 					<Link to='/saran'>
 						<div className='flex gap-3'>
 							<PencilLine />: masukan kritik dan saran mu disini
+						</div>
+					</Link>
+				</div>
+				<div className=' grid grid-flow-row'>
+					<h1 className='footer footer-title'>FaQ </h1>
+					<Link to='/FaQ'>
+						<div className='flex gap-3'>
+							<CircleHelp /> FaQ
 						</div>
 					</Link>
 				</div>

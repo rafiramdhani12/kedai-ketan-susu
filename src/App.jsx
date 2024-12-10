@@ -7,6 +7,7 @@ import DetailMenu from './pages/menu/DetailMenu';
 import Monitor from './pages/monitor';
 import Saran from './pages/saran';
 import ScrollToTop from './components/ScrolltoTop';
+import FaQ from './components/FaQ';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/menu' element={<Menu />} />
 					<Route path='/saran' element={<Saran />} />
+					<Route path='/FaQ' element={<FaQ />} />
 					<Route path='/monitor' element={<Monitor />} />
 					<Route path='/menu/:id' element={<DetailMenu />} />
 				</Routes>
