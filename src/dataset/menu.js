@@ -15,7 +15,7 @@ export const dataMenu = [
 		deskripsi: 'ketan susu original adalah makanan tradisional ketan yg disiram oleh kental manis dan susu segar',
 		label: 'best sale',
 		rating: 5,
-		harga: 10,
+		harga: 12,
 	},
 	{
 		id: 3,
